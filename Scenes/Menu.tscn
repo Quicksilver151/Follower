@@ -1,13 +1,17 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scenes/SceneCode/Menu.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Fonts/FontResources/minecraft.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://icon.png" type="Texture" id=3]
+[ext_resource path="res://followerHeartHighRes.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/Title.gd" type="Script" id=4]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=4]
 size = 128
 use_filter = true
 font_data = ExtResource( 2 )
+
+[sub_resource type="RichTextEffect" id=5]
+script = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 84
@@ -30,16 +34,17 @@ script = ExtResource( 1 )
 margin_right = 1920.0
 margin_bottom = 1080.0
 
-[node name="Title" type="Label" parent="VBoxContainer"]
-margin_top = 28.0
+[node name="Title" type="RichTextLabel" parent="VBoxContainer"]
 margin_right = 1920.0
-margin_bottom = 287.0
+margin_bottom = 315.0
 size_flags_horizontal = 3
-size_flags_vertical = 6
-custom_fonts/font = SubResource( 1 )
-text = "
-Follower"
-align = 1
+size_flags_vertical = 7
+custom_colors/default_color = Color( 0.243137, 0.243137, 0.243137, 1 )
+custom_fonts/normal_font = SubResource( 4 )
+bbcode_enabled = true
+bbcode_text = "[wave freq=1 amp=64][center][pulse color=#555555 height=001 freq=3.0] Follower[/pulse]"
+text = " Follower"
+custom_effects = [ SubResource( 5 ) ]
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
 margin_top = 319.0
@@ -68,6 +73,7 @@ margin_right = 432.0
 margin_bottom = 91.0
 size_flags_horizontal = 5
 size_flags_vertical = 6
+custom_colors/font_color = Color( 0.243137, 0.243137, 0.243137, 1 )
 custom_fonts/font = SubResource( 2 )
 custom_styles/focus = SubResource( 3 )
 text = "  Start"
@@ -80,6 +86,7 @@ margin_right = 432.0
 margin_bottom = 246.0
 size_flags_horizontal = 5
 size_flags_vertical = 6
+custom_colors/font_color = Color( 0.243137, 0.243137, 0.243137, 1 )
 custom_fonts/font = SubResource( 2 )
 custom_styles/focus = SubResource( 3 )
 text = "  Options"
@@ -92,6 +99,7 @@ margin_right = 432.0
 margin_bottom = 401.0
 size_flags_horizontal = 5
 size_flags_vertical = 6
+custom_colors/font_color = Color( 0.243137, 0.243137, 0.243137, 1 )
 custom_fonts/font = SubResource( 2 )
 custom_styles/focus = SubResource( 3 )
 text = "  Exit"
@@ -99,7 +107,6 @@ flat = true
 align = 0
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/MarginContainer/HBoxContainer"]
-modulate = Color( 0, 0.835294, 1, 1 )
 margin_left = 862.0
 margin_right = 1720.0
 margin_bottom = 401.0
