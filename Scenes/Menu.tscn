@@ -7,7 +7,7 @@
 
 [sub_resource type="StreamTexture" id=6]
 flags = 1
-load_path = "res://.import/SpriteSet.png-27ef2dc2c4e44a857cf0c781c76c58a1.stex"
+load_path = "res://.import/sprite_set.png-7b56e8b8ae1957556f5b71cf57064aff.stex"
 
 [sub_resource type="AtlasTexture" id=5]
 flags = 1
@@ -122,7 +122,7 @@ layer = -1
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 show_behind_parent = true
-margin_right = 1920.0
+margin_right = 5376.0
 margin_bottom = 1080.0
 color = Color( 0.243137, 0.243137, 0.243137, 1 )
 
@@ -136,7 +136,7 @@ fit_content_height = true
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 color = Color( 0.74902, 0.74902, 0.74902, 1 )
-polygon = PoolVector2Array( 1920, 384, 1088, 384, 1088, 768, 1920, 768, 2944, 768, 2944, 384 )
+polygon = PoolVector2Array( 1920, 384, 1088, 384, 1088, 768, 1920, 768, 4096, 768, 4096, 384 )
 
 [node name="Player" type="Sprite" parent="Polygon2D"]
 position = Vector2( 1216, 576 )
