@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://Assets/Shaders/Filter.tres" type="Material" id=1]
+[ext_resource path="res://Assets/Shaders/filter.tres" type="Material" id=1]
 
 [node name="Overlay" type="CanvasLayer"]
 
@@ -10,6 +10,7 @@ anchor_bottom = 1.0
 mouse_filter = 2
 
 [node name="Filter" type="ColorRect" parent="MarginContainer"]
+modulate = Color( 0.647059, 0.188235, 0.188235, 1 )
 material = ExtResource( 1 )
 margin_right = 1920.0
 margin_bottom = 1080.0

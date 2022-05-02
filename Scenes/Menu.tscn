@@ -1,20 +1,107 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scenes/SceneCode/Menu.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Fonts/FontResources/minecraft.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://followerHeartHighRes.png" type="Texture" id=3]
-[ext_resource path="res://Scenes/Title.gd" type="Script" id=4]
+[ext_resource path="res://Assets/Fonts/button_text.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Assets/Sound/click.ogg" type="AudioStream" id=4]
+
+[sub_resource type="StreamTexture" id=6]
+flags = 1
+load_path = "res://.import/SpriteSet.png-27ef2dc2c4e44a857cf0c781c76c58a1.stex"
+
+[sub_resource type="AtlasTexture" id=5]
+flags = 1
+atlas = SubResource( 6 )
+region = Rect2( 0, 0, 48, 16 )
+
+[sub_resource type="AtlasTexture" id=7]
+flags = 1
+atlas = SubResource( 6 )
+region = Rect2( 48, 0, 80, 16 )
+
+[sub_resource type="Animation" id=8]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Player:vframes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Follower:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Player:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "idle"
+length = 2.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Player:vframes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 1,
+"values": [  ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Follower:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Player:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2 ]
+}
 
 [sub_resource type="DynamicFont" id=4]
 size = 128
-use_filter = true
-font_data = ExtResource( 2 )
-
-[sub_resource type="RichTextEffect" id=5]
-script = ExtResource( 4 )
-
-[sub_resource type="DynamicFont" id=2]
-size = 84
+use_mipmaps = true
 use_filter = true
 font_data = ExtResource( 2 )
 
@@ -30,26 +117,65 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+show_behind_parent = true
+margin_right = 1920.0
+margin_bottom = 1080.0
+color = Color( 0.243137, 0.243137, 0.243137, 1 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
+margin_top = 1065.0
+margin_right = 1920.0
+margin_bottom = 1080.0
+size_flags_horizontal = 3
+text = "Version 0.1"
+fit_content_height = true
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color( 0.74902, 0.74902, 0.74902, 1 )
+polygon = PoolVector2Array( 1920, 384, 1088, 384, 1088, 768, 1920, 768, 2944, 768, 2944, 384 )
+
+[node name="Player" type="Sprite" parent="Polygon2D"]
+position = Vector2( 1216, 576 )
+scale = Vector2( 12, 12 )
+texture = SubResource( 5 )
+centered = false
+hframes = 3
+
+[node name="Follower" type="Sprite" parent="Polygon2D"]
+position = Vector2( 1728, 585 )
+scale = Vector2( 12, 12 )
+texture = SubResource( 7 )
+centered = false
+hframes = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Polygon2D"]
+autoplay = "idle"
+anims/RESET = SubResource( 8 )
+anims/idle = SubResource( 9 )
+
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 margin_right = 1920.0
 margin_bottom = 1080.0
 
 [node name="Title" type="RichTextLabel" parent="VBoxContainer"]
 margin_right = 1920.0
-margin_bottom = 315.0
+margin_bottom = 283.0
 size_flags_horizontal = 3
 size_flags_vertical = 7
-custom_colors/default_color = Color( 0.243137, 0.243137, 0.243137, 1 )
+custom_colors/default_color = Color( 0.74902, 0.74902, 0.74902, 1 )
 custom_fonts/normal_font = SubResource( 4 )
 bbcode_enabled = true
-bbcode_text = "[wave freq=1 amp=64][center][pulse color=#555555 height=001 freq=3.0] Follower[/pulse]"
-text = " Follower"
-custom_effects = [ SubResource( 5 ) ]
+bbcode_text = "[wave freq=1 amp=64][center]Follower"
+text = "Follower"
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
-margin_top = 319.0
+margin_top = 287.0
 margin_right = 1920.0
-margin_bottom = 760.0
+margin_bottom = 792.0
 custom_constants/margin_right = 100
 custom_constants/margin_top = 20
 custom_constants/margin_left = 100
@@ -59,75 +185,69 @@ custom_constants/margin_bottom = 20
 margin_left = 100.0
 margin_top = 20.0
 margin_right = 1820.0
-margin_bottom = 421.0
+margin_bottom = 485.0
 
 [node name="Buttons" type="VBoxContainer" parent="VBoxContainer/MarginContainer/HBoxContainer"]
 margin_right = 432.0
-margin_bottom = 401.0
+margin_bottom = 465.0
 size_flags_horizontal = 2
 size_flags_vertical = 7
-custom_constants/separation = 64
+custom_constants/separation = 96
 
 [node name="Start" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer/Buttons"]
 margin_right = 432.0
 margin_bottom = 91.0
 size_flags_horizontal = 5
 size_flags_vertical = 6
-custom_colors/font_color = Color( 0.243137, 0.243137, 0.243137, 1 )
-custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.74902, 0.74902, 0.74902, 1 )
+custom_fonts/font = ExtResource( 3 )
 custom_styles/focus = SubResource( 3 )
 text = "  Start"
 flat = true
 align = 0
 
 [node name="Options" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer/Buttons"]
-margin_top = 155.0
+margin_top = 187.0
 margin_right = 432.0
-margin_bottom = 246.0
+margin_bottom = 278.0
 size_flags_horizontal = 5
 size_flags_vertical = 6
-custom_colors/font_color = Color( 0.243137, 0.243137, 0.243137, 1 )
-custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.74902, 0.74902, 0.74902, 1 )
+custom_fonts/font = ExtResource( 3 )
 custom_styles/focus = SubResource( 3 )
 text = "  Options"
 flat = true
 align = 0
 
 [node name="Exit" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer/Buttons"]
-margin_top = 310.0
+margin_top = 374.0
 margin_right = 432.0
-margin_bottom = 401.0
+margin_bottom = 465.0
 size_flags_horizontal = 5
 size_flags_vertical = 6
-custom_colors/font_color = Color( 0.243137, 0.243137, 0.243137, 1 )
-custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.74902, 0.74902, 0.74902, 1 )
+custom_fonts/font = ExtResource( 3 )
 custom_styles/focus = SubResource( 3 )
 text = "  Exit"
 flat = true
 align = 0
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/MarginContainer/HBoxContainer"]
-margin_left = 862.0
-margin_right = 1720.0
-margin_bottom = 401.0
-size_flags_horizontal = 3
-texture = ExtResource( 3 )
-expand = true
-stretch_mode = 6
-
 [node name="Footer" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 1065.0
+margin_top = 1080.0
 margin_right = 1920.0
 margin_bottom = 1080.0
 size_flags_horizontal = 3
 size_flags_vertical = 14
 
-[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/Footer"]
-margin_right = 1920.0
-margin_bottom = 15.0
-size_flags_horizontal = 3
-text = "Version 0.1"
-fit_content_height = true
+[node name="ClickSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+
+[node name="FocusArea" type="Position2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 960, 540 )
+rotating = true
+current = true
 
 [connection signal="pressed" from="VBoxContainer/MarginContainer/HBoxContainer/Buttons/Start" to="." method="_on_Start_pressed"]
 [connection signal="pressed" from="VBoxContainer/MarginContainer/HBoxContainer/Buttons/Options" to="." method="_on_Options_pressed"]
