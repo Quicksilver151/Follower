@@ -28,6 +28,7 @@ config/icon="res://followericon.png"
 [autoload]
 
 Background="*res://Objects/ObjectAssets/Background.tscn"
+SceneChanger="*res://Objects/ObjectAssets/SceneChanger.tscn"
 Overlay="*res://Objects/ObjectAssets/Overlay.tscn"
 Global="*res://Code/Globals.gd"
 

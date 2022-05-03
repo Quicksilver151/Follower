@@ -9,6 +9,7 @@ var jump_allow_time = 0
 
 func _physics_process(delta):
 	
+	Global.player_position = global_position
 	
 	top_down_movement(delta)
 	

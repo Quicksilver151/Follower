@@ -14,6 +14,7 @@ func _input(event):
 	for body in get_overlapping_bodies():
 		if body.name == "Player":
 			active = !active
+			$AudioStreamPlayer.play()
 			Global.increment_switch_phase()
 	
 	$Sprite.frame = 0

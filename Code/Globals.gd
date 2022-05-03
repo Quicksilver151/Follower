@@ -2,6 +2,8 @@ extends Node
 
 var switch_phase = 0
 
+onready var player_position = get_viewport().size/2
+
 func _ready():
 #	VisualServer.set_default_clear_color(Color.from_hsv(0,0,0.5))
 	VisualServer.set_default_clear_color(Color("bfbfbf"))
@@ -30,5 +32,5 @@ func increment_switch_phase():
 	switch_phase += 1
 	if switch_phase >= 100:
 		switch_phase = 0
-	print(switch_phase)
+	
 

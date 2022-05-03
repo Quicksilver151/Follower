@@ -36,14 +36,13 @@ func follower_movement(delta):
 
 func detect_finish_line():
 	
-	if get_parent().get_node("Tiles").is_at_finish_line(global_position) and !$Sounds/Finish.playing:
+	if get_parent().get_node("Tiles").is_at_finish_line(global_position) and !$Sounds/Finish.playing and !SceneChanger.get_node("AnimationPlayer").is_playing():
 		$Sounds/Finish.play()
 		yield($Sounds/Finish,"finished")
 		
-		var err = get_tree().change_scene("res://Scenes/Levels/Level"+str(int(get_parent().name.lstrip("Level"))+1)+".tscn")
+		SceneChanger.change_scene("res://Scenes/Levels/Level"+str(int(get_parent().name.lstrip("Level"))+1)+".tscn")
 		
-		if err != OK:
-			get_tree().change_scene("res://Scenes/Menu.tscn")
+	
 		
 
 
