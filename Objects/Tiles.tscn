@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Assets/Sprites/sprite_set.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Sprites/sprite_sheet.png" type="Texture" id=1]
 [ext_resource path="res://Code/Tiles.gd" type="Script" id=2]
 
 [sub_resource type="NavigationPolygon" id=2]

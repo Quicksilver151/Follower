@@ -16,10 +16,10 @@ func _input(event):
 			active = !active
 			$AudioStreamPlayer.play()
 			Global.increment_switch_phase()
-	
-	$Sprite.frame = 0
-	if active:
-		$Sprite.frame = 1
+			
+			$Sprite.frame = 1
+			yield(get_tree().create_timer(0.2),"timeout")
+			$Sprite.frame = 0
 	
 	
 

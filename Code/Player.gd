@@ -11,17 +11,19 @@ func _physics_process(delta):
 	
 	Global.player_position = global_position
 	
+
+	
 	top_down_movement(delta)
 	
 
 func top_down_movement(delta):
 	
-	var x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
-	
-	
-	# Jump Safety
-	if Input.is_action_just_pressed("ui_jump"):
-		jump_buffer = 0.1
+	var x = 0
+	if !SceneChanger.is_changing_scene():
+		x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
+		# Jump Safety
+		if Input.is_action_just_pressed("ui_jump"):
+			jump_buffer = 0.1
 	
 	if (is_on_wall() or is_on_floor()):
 		jump_allow_time = 0.15
@@ -37,5 +39,6 @@ func top_down_movement(delta):
 	direction.y += 10*delta
 	
 	direction.x = lerp(direction.x,x,0.4)
+	
 	
 	direction = move_and_slide(direction*speed)/speed

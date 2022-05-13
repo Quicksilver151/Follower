@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 
+
 func _ready():
 	$AnimationPlayer.play("fade_in")
 
@@ -10,6 +11,8 @@ func _process(delta):
 	
 	
 
+func is_changing_scene():
+	return $AnimationPlayer.is_playing()
 
 func change_scene(scene_path:String):
 	var err = 0
@@ -19,6 +22,7 @@ func change_scene(scene_path:String):
 	
 	
 	if !$AnimationPlayer.is_playing():
+		get_tree().get_root().set_disable_input(true)
 		$AnimationPlayer.play_backwards("fade_in")
 		yield($AnimationPlayer,"animation_finished")
 		err = get_tree().change_scene(scene_path)
@@ -27,6 +31,7 @@ func change_scene(scene_path:String):
 		yield(get_tree().create_timer(0.5),"timeout")
 		$AnimationPlayer.play("fade_in")
 		yield($AnimationPlayer,"animation_finished")
+		get_tree().get_root().set_disable_input(false)
 	
 
 
