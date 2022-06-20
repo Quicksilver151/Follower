@@ -13,7 +13,7 @@ func _physics_process(delta):
 	
 	follower_movement(delta)
 	detect_finish_line()
-
+	
 
 func follower_movement(delta):
 	direction.y += 10*delta
@@ -36,7 +36,7 @@ func follower_movement(delta):
 
 func detect_finish_line():
 	
-	if get_parent().get_node("Tiles").is_at_finish_line(global_position) and !$Sounds/Finish.playing and !SceneChanger.get_node("AnimationPlayer").is_playing():
+	if (get_parent().get_node("Tiles").get_pos_tile(global_position) == "finish") and !$Sounds/Finish.playing and !SceneChanger.get_node("AnimationPlayer").is_playing():
 		$Sounds/Finish.play()
 		yield($Sounds/Finish,"finished")
 		

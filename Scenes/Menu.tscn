@@ -7,7 +7,7 @@
 
 [sub_resource type="StreamTexture" id=6]
 flags = 1
-load_path = "res://.import/sprite_set.png-7b56e8b8ae1957556f5b71cf57064aff.stex"
+load_path = "res://.import/sprite_sheet.png-ed71af56a56fda4203736408118fafb5.stex"
 
 [sub_resource type="AtlasTexture" id=5]
 flags = 1

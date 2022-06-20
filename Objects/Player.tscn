@@ -4,7 +4,7 @@
 [ext_resource path="res://Code/Player.gd" type="Script" id=2]
 
 [sub_resource type="CapsuleShape2D" id=5]
-radius = 16.0
+radius = 15.0
 height = 32.0
 
 [sub_resource type="AtlasTexture" id=1]
@@ -40,5 +40,5 @@ shape = SubResource( 5 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 4, 4 )
 frames = SubResource( 4 )
-frame = 2
+frame = 1
 playing = true

@@ -74,7 +74,7 @@ anchor_bottom = 1.0
 mouse_filter = 2
 
 [node name="Filter" type="ColorRect" parent="MarginContainer"]
-modulate = Color( 0.386719, 0.491511, 0.75, 1 )
+modulate = Color( 0.388235, 0.490196, 0.74902, 1 )
 material = ExtResource( 1 )
 margin_right = 1920.0
 margin_bottom = 1080.0

@@ -28,7 +28,7 @@ func _process(delta):
 		gradient_background(delta)
 	pass
 
-func gradient_background(delta,sat=60,val=85):
+func gradient_background(delta,sat=48,val=75):
 	Overlay.get_node("MarginContainer/Filter").modulate.h += delta/30
 	Overlay.get_node("MarginContainer/Filter").modulate.s = sat/100.0
 	Overlay.get_node("MarginContainer/Filter").modulate.v = val/100.0
@@ -52,7 +52,7 @@ func parse_cheatcode(event):
 		print("awesome")
 		awesome = !awesome
 		input_string.erase(0,input_string.length())
-		
+		Overlay.get_node("MarginContainer/Filter").modulate.h = 223.0/359.0
 
 	
 
