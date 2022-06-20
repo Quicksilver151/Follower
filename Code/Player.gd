@@ -11,7 +11,9 @@ func _physics_process(delta):
 	
 	Global.player_position = global_position
 	
-
+	if (get_parent().get_node("Tiles").get_pos_tile(global_position) == "spike"):
+		Global.death()
+		queue_free()
 	
 	top_down_movement(delta)
 	
@@ -42,3 +44,6 @@ func top_down_movement(delta):
 	
 	
 	direction = move_and_slide(direction*speed)/speed
+
+
+
