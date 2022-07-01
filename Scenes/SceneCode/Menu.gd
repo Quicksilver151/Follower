@@ -9,6 +9,7 @@ onready var button:Array = [
 var line:Array = [Vector2.ZERO,Vector2.ZERO]
 
 func _ready():
+	$CanvasLayer/Version.text = "Version: "+Global.VERSION
 	$VBoxContainer/MarginContainer/HBoxContainer/Buttons/Start.grab_focus()
 	
 
@@ -49,6 +50,12 @@ func _on_Start_pressed():
 	pass
 
 
+func _on_Levels_pressed():
+	$ClickSound.play()
+	yield($ClickSound,"finished")
+	SceneChanger.change_scene("res://Scenes/LevelSelect.tscn")
+
+
 func _on_Options_pressed():
 	$ClickSound.play()
 	yield($ClickSound,"finished")
@@ -62,3 +69,4 @@ func _on_Exit_pressed():
 	yield($ClickSound,"finished")
 	
 	get_tree().quit()
+

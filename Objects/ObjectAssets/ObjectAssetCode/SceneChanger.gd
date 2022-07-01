@@ -6,10 +6,7 @@ func _ready():
 	$AnimationPlayer.play("fade_in")
 
 func _process(delta):
-	
-	calculate_center()
-	
-	
+	calculate_center_with_gaps()
 
 func is_changing_scene():
 	return $AnimationPlayer.is_playing()
@@ -32,10 +29,13 @@ func change_scene(scene_path:String):
 		$AnimationPlayer.play("fade_in")
 		yield($AnimationPlayer,"animation_finished")
 		get_tree().get_root().set_disable_input(false)
-	
+		
 
 
-func calculate_center():
+
+
+
+func calculate_center_with_gaps():
 	$HBoxContainer/Right.size_flags_stretch_ratio = 1 - $HBoxContainer/Left.size_flags_stretch_ratio
 	$VBoxContainer/Bottom.size_flags_stretch_ratio = 1 - $VBoxContainer/Top.size_flags_stretch_ratio
 	

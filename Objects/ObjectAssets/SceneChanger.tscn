@@ -28,6 +28,42 @@ tracks/1/keys = {
 "update": 0,
 "values": [ 1080 ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("HBoxContainer/Left:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("HBoxContainer:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("VBoxContainer:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
 
 [sub_resource type="Animation" id=2]
 resource_name = "fade_in"
@@ -39,10 +75,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.7, 2 ),
-"transitions": PoolRealArray( 0.366021, 0.4, 0.258816 ),
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 0.307786, 0.75, 0.203063 ),
 "update": 0,
-"values": [ 0, 298, 1920 ]
+"values": [ 0, 298, 2880 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("VBoxContainer:custom_constants/separation")
@@ -51,10 +87,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.7, 2 ),
-"transitions": PoolRealArray( 0.366021, 0.4, 0.258816 ),
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 0.307786, 0.75, 0.203063 ),
 "update": 0,
-"values": [ 0, 167, 1080 ]
+"values": [ 0, 167, 1620 ]
 }
 
 [node name="SceneChanger" type="CanvasLayer"]
@@ -74,6 +110,7 @@ custom_constants/separation = 1920
 
 [node name="Left" type="ColorRect" parent="HBoxContainer"]
 show_behind_parent = true
+margin_right = 960.0
 margin_bottom = 1080.0
 mouse_filter = 2
 size_flags_horizontal = 3
@@ -82,7 +119,7 @@ color = Color( 0.243137, 0.243137, 0.243137, 1 )
 
 [node name="Right" type="ColorRect" parent="HBoxContainer"]
 show_behind_parent = true
-margin_left = 1920.0
+margin_left = 960.0
 margin_right = 1920.0
 margin_bottom = 1080.0
 mouse_filter = 2
@@ -99,6 +136,7 @@ custom_constants/separation = 1080
 [node name="Top" type="ColorRect" parent="VBoxContainer"]
 show_behind_parent = true
 margin_right = 1920.0
+margin_bottom = 540.0
 mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -106,7 +144,7 @@ color = Color( 0.243137, 0.243137, 0.243137, 1 )
 
 [node name="Bottom" type="ColorRect" parent="VBoxContainer"]
 show_behind_parent = true
-margin_top = 1080.0
+margin_top = 540.0
 margin_right = 1920.0
 margin_bottom = 1080.0
 mouse_filter = 2

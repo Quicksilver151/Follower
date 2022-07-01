@@ -126,7 +126,7 @@ margin_right = 5376.0
 margin_bottom = 1080.0
 color = Color( 0.243137, 0.243137, 0.243137, 1 )
 
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
+[node name="Version" type="RichTextLabel" parent="CanvasLayer"]
 margin_top = 1065.0
 margin_right = 1920.0
 margin_bottom = 1080.0
@@ -160,10 +160,11 @@ anims/idle = SubResource( 9 )
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 margin_right = 1920.0
 margin_bottom = 1080.0
+custom_constants/separation = 28
 
 [node name="Title" type="RichTextLabel" parent="VBoxContainer"]
 margin_right = 1920.0
-margin_bottom = 283.0
+margin_bottom = 298.0
 size_flags_horizontal = 3
 size_flags_vertical = 7
 custom_colors/default_color = Color( 0.74902, 0.74902, 0.74902, 1 )
@@ -173,26 +174,27 @@ bbcode_text = "[wave freq=1 amp=64][center]Follower"
 text = "Follower"
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
-margin_top = 287.0
+margin_top = 326.0
 margin_right = 1920.0
-margin_bottom = 792.0
+margin_bottom = 902.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 custom_constants/margin_right = 100
 custom_constants/margin_top = 20
-custom_constants/margin_left = 100
-custom_constants/margin_bottom = 20
+custom_constants/margin_left = 64
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer"]
-margin_left = 100.0
+margin_left = 64.0
 margin_top = 20.0
 margin_right = 1820.0
-margin_bottom = 485.0
+margin_bottom = 576.0
 
 [node name="Buttons" type="VBoxContainer" parent="VBoxContainer/MarginContainer/HBoxContainer"]
 margin_right = 432.0
-margin_bottom = 465.0
+margin_bottom = 556.0
 size_flags_horizontal = 2
 size_flags_vertical = 7
-custom_constants/separation = 96
+custom_constants/separation = 64
 
 [node name="Start" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer/Buttons"]
 margin_right = 432.0
@@ -206,10 +208,23 @@ text = "  Start"
 flat = true
 align = 0
 
-[node name="Options" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer/Buttons"]
-margin_top = 187.0
+[node name="Levels" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer/Buttons"]
+margin_top = 155.0
 margin_right = 432.0
-margin_bottom = 278.0
+margin_bottom = 246.0
+size_flags_horizontal = 5
+size_flags_vertical = 6
+custom_colors/font_color = Color( 0.74902, 0.74902, 0.74902, 1 )
+custom_fonts/font = ExtResource( 3 )
+custom_styles/focus = SubResource( 3 )
+text = "  Levels"
+flat = true
+align = 0
+
+[node name="Options" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer/Buttons"]
+margin_top = 310.0
+margin_right = 432.0
+margin_bottom = 401.0
 size_flags_horizontal = 5
 size_flags_vertical = 6
 custom_colors/font_color = Color( 0.74902, 0.74902, 0.74902, 1 )
@@ -220,9 +235,9 @@ flat = true
 align = 0
 
 [node name="Exit" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer/Buttons"]
-margin_top = 374.0
+margin_top = 465.0
 margin_right = 432.0
-margin_bottom = 465.0
+margin_bottom = 556.0
 size_flags_horizontal = 5
 size_flags_vertical = 6
 custom_colors/font_color = Color( 0.74902, 0.74902, 0.74902, 1 )
@@ -238,6 +253,7 @@ margin_right = 1920.0
 margin_bottom = 1080.0
 size_flags_horizontal = 3
 size_flags_vertical = 14
+size_flags_stretch_ratio = 0.5
 
 [node name="ClickSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
@@ -250,5 +266,6 @@ rotating = true
 current = true
 
 [connection signal="pressed" from="VBoxContainer/MarginContainer/HBoxContainer/Buttons/Start" to="." method="_on_Start_pressed"]
+[connection signal="pressed" from="VBoxContainer/MarginContainer/HBoxContainer/Buttons/Levels" to="." method="_on_Levels_pressed"]
 [connection signal="pressed" from="VBoxContainer/MarginContainer/HBoxContainer/Buttons/Options" to="." method="_on_Options_pressed"]
 [connection signal="pressed" from="VBoxContainer/MarginContainer/HBoxContainer/Buttons/Exit" to="." method="_on_Exit_pressed"]

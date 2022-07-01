@@ -1,6 +1,9 @@
 extends Node
 
+var VERSION = "0.1.6"
+
 var switch_phase = 0
+
 
 var input_string = ""
 var awesome = false
@@ -10,6 +13,7 @@ onready var player_position = get_viewport().size/2
 
 
 func _ready():
+	
 	
 	for node in Overlay.get_node("Sounds").get_children():
 		sound[node.name]=node
@@ -60,6 +64,7 @@ func parse_cheatcode(event):
 func death():
 	sound["Hurt"].play()
 	yield(sound["Hurt"],"finished")
+	switch_phase = 0
 	get_tree().reload_current_scene()
 	
 

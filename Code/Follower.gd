@@ -18,9 +18,9 @@ func _physics_process(delta):
 func follower_movement(delta):
 	direction.y += 10*delta
 	
-	if follow and abs(player.position.x - position.x) > 38:
+	if follow and abs(Global.player_position.x - position.x) > 38:
 		
-		direction.x = Vector2((player.position.x - position.x),0).normalized().x
+		direction.x = Vector2((Global.player_position.x - position.x),0).normalized().x
 	else:
 		direction.x = 0
 	
