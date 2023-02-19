@@ -131,7 +131,7 @@ margin_top = 1065.0
 margin_right = 1920.0
 margin_bottom = 1080.0
 size_flags_horizontal = 3
-text = "Version 0.1"
+text = "Version 0.2.0"
 fit_content_height = true
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
