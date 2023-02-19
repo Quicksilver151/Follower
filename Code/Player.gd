@@ -42,8 +42,23 @@ func top_down_movement(delta):
 	
 	direction.x = lerp(direction.x,x,0.4)
 	
-	
+	wrap()
 	direction = move_and_slide(direction*speed)/speed
 
+func wrap():
+	var screen_edge = get_viewport_rect()
+	
+	var in_range = round(position.x) in range(-10,screen_edge.size.x+10)
+	print(in_range)
+	if in_range:
+		if   position.x > screen_edge.size.x:
+			position.x = screen_edge.position.x + 1
+		elif position.y > screen_edge.size.y: 
+			position.y = screen_edge.position.y + 1
+		elif position.x < screen_edge.position.x:
+			position.x = screen_edge.size.x - 1
+		elif position.y < screen_edge.position.y:
+			position.y = screen_edge.size.y - 1
+		
 
 

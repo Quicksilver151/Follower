@@ -13,6 +13,7 @@ func _physics_process(delta):
 	
 	follower_movement(delta)
 	detect_finish_line()
+	wrap()
 	
 
 func follower_movement(delta):
@@ -53,4 +54,20 @@ func _on_PlayerDetector_body_entered(body):
 			$Sounds/Activate.play()
 			$Particles2D.emitting = true
 		follow = true
+
+func wrap():
+	var screen_edge = get_viewport_rect()
+	
+	var in_range = position.x in range(-10,screen_edge.size.x+10)
+	
+	if in_range:
+		if   position.x > screen_edge.size.x:
+			position.x = screen_edge.position.x + 1
+		elif position.y > screen_edge.size.y: 
+			position.y = screen_edge.position.y + 1
+		elif position.x < screen_edge.position.x:
+			position.x = screen_edge.size.x - 1
+		elif position.y < screen_edge.position.y:
+			position.y = screen_edge.size.y - 1
+
 
