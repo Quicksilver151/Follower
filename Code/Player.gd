@@ -49,7 +49,7 @@ func wrap():
 	var screen_edge = get_viewport_rect()
 	
 	var in_range = round(position.x) in range(-10,screen_edge.size.x+10)
-	print(in_range)
+	
 	if in_range:
 		if   position.x > screen_edge.size.x:
 			position.x = screen_edge.position.x + 1
