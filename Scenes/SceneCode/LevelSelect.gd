@@ -6,7 +6,6 @@ export (PackedScene) var LevelObject = preload("res://Objects/ObjectAssets/Level
 
 func _ready():
 	var levels = dir_contents("res://Scenes/Levels/")
-	levels.pop_front()
 	
 	for level in levels:
 		var level_object = LevelObject.instance()
@@ -32,5 +31,7 @@ func dir_contents(path) -> Array:
 			list.append(int(file_name.strip_edges("Level",".tscn")))
 	
 	list.sort()
+	list.pop_front()
+	
 	return list
 
