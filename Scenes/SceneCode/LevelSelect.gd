@@ -5,6 +5,8 @@ onready var LevelContainer = $ScrollContainer/LevelContainer
 export (PackedScene) var LevelObject = preload("res://Objects/ObjectAssets/Level.tscn")
 
 func _ready():
+	$CanvasLayer/Version.text = "Version: "+Global.VERSION
+	
 	var levels = dir_contents("res://Scenes/Levels/")
 	
 	for level in levels:
