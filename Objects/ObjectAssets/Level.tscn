@@ -72,6 +72,7 @@ bbcode_enabled = true
 bbcode_text = "[center]1"
 text = "1"
 fit_content_height = true
+scroll_active = false
 
 [node name="Button" type="Button" parent="."]
 margin_right = 128.0
