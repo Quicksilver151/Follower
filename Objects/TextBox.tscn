@@ -47,7 +47,7 @@ VScrollBar/styles/grabber_pressed = SubResource( 13 )
 VScrollBar/styles/scroll = SubResource( 14 )
 VScrollBar/styles/scroll_focus = SubResource( 15 )
 
-[node name="Title" type="RichTextLabel"]
+[node name="TextBox" type="RichTextLabel"]
 margin_right = 960.0
 margin_bottom = 96.0
 size_flags_horizontal = 3
