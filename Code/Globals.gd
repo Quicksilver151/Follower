@@ -2,8 +2,9 @@ extends Node
 
 var VERSION = "0.2.0"
 
-var switch_phase = 0
 
+var switch_phase = 0
+signal player_dead
 
 var input_string = ""
 var awesome = false
@@ -62,6 +63,7 @@ func parse_cheatcode(event):
 		Overlay.get_node("MarginContainer/Filter").modulate.h = 223.0/359.0
 
 func death():
+	emit_signal("player_dead")
 	sound["Hurt"].play()
 	yield(sound["Hurt"],"finished")
 	switch_phase = 0

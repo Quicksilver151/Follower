@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "RichTextEffect",
 "class": "RichTextPulse",
 "language": "GDScript",
-"path": "res://Scenes/Title.gd"
+"path": "res://Assets/RichTextEffects/Title.gd"
 } ]
 _global_script_class_icons={
 "RichTextPulse": ""

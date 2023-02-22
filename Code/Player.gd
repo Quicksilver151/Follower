@@ -7,6 +7,12 @@ var direction = Vector2.ZERO
 var jump_buffer = 0
 var jump_allow_time = 0
 
+func _ready():
+	Global.connect("player_dead",self,"stop_movement")
+
+func stop_movement():
+	set_physics_process(false)
+
 func _physics_process(delta):
 	
 	Global.player_position = global_position
