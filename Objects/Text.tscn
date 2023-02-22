@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Assets/Fonts/normal_text.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Objects/ObjectAssets/ObjectAssetCode/Text.gd" type="Script" id=2]
 
 [sub_resource type="StyleBoxEmpty" id=6]
 
@@ -55,3 +56,4 @@ theme = SubResource( 5 )
 custom_colors/default_color = Color( 0.74902, 0.74902, 0.74902, 1 )
 custom_fonts/normal_font = ExtResource( 1 )
 text = "[insert text]"
+script = ExtResource( 2 )
