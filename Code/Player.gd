@@ -1,6 +1,9 @@
 extends KinematicBody2D
 
 
+export (bool) var h_warp = true
+export (bool) var v_warp = true
+
 var speed = 420
 var direction = Vector2.ZERO
 
@@ -56,14 +59,16 @@ func wrap():
 	
 	var in_range = round(position.x) in range(-10,screen_edge.size.x+10)
 	
-	if in_range:
+	
+	if h_warp:
 		if   position.x > screen_edge.size.x:
 			position.x = screen_edge.position.x + 1
-		elif position.y > screen_edge.size.y: 
-			position.y = screen_edge.position.y + 1
-		elif position.x < screen_edge.position.x:
+		if position.x < screen_edge.position.x:
 			position.x = screen_edge.size.x - 1
-		elif position.y < screen_edge.position.y:
+	if v_warp:
+		if position.y > screen_edge.size.y: 
+			position.y = screen_edge.position.y + 1
+		if position.y < screen_edge.position.y:
 			position.y = screen_edge.size.y - 1
 		
 

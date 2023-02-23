@@ -107,7 +107,6 @@ shape = SubResource( 11 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 4, 4 )
 frames = SubResource( 1 )
-frame = 3
 playing = true
 
 [node name="Particles2D" type="Particles2D" parent="."]

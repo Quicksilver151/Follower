@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Assets/Fonts/normal_text.tres" type="DynamicFont" id=1]
-[ext_resource path="res://Objects/ObjectAssets/ObjectAssetCode/Text.gd" type="Script" id=2]
+[ext_resource path="res://Objects/ObjectAssets/ObjectAssetCode/TextBox.gd" type="Script" id=2]
 
 [sub_resource type="StyleBoxEmpty" id=6]
 
