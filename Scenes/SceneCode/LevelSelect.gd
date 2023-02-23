@@ -24,16 +24,19 @@ func dir_contents(path) -> Array:
 	var dir = Directory.new()
 	var list = []
 	if dir.open(path) == OK:
-		dir.list_dir_begin()
+		dir.list_dir_begin(true)
 		var file_name = dir.get_next()
 		while file_name != "":
+			
+			list.append(int(file_name.strip_edges("Level",".tscn")))
 			file_name = dir.get_next()
 			if dir.current_is_dir():
 				continue
-			list.append(int(file_name.strip_edges("Level",".tscn")))
+			
 	
 	list.sort()
-	list.pop_front()
+	if !OS.has_feature("standalone"):
+		list.pop_front()
 	
 	return list
 
