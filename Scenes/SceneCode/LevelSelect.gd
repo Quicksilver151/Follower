@@ -35,8 +35,7 @@ func dir_contents(path) -> Array:
 			
 	
 	list.sort()
-	if !OS.has_feature("standalone"):
-		list.pop_front()
+	list.pop_front()
 	
 	return list
 
