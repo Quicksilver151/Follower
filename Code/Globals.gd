@@ -1,6 +1,6 @@
 extends Node
 
-var VERSION = "0.2.1"
+var VERSION = "0.2.2"
 
 
 var switch_phase = 0
