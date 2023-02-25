@@ -60,7 +60,7 @@ func _on_Options_pressed():
 	$ClickSound.play()
 	yield($ClickSound,"finished")
 	
-	print("WIP")
+	print("Oh the irony")
 
 
 func _on_Exit_pressed():
