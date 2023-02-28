@@ -1,8 +1,9 @@
 extends MarginContainer
 
 
-onready var LevelContainer = $ScrollContainer/LevelContainer
+onready var LevelContainer = $VBoxContainer/ScrollContainer/LevelContainer
 export (PackedScene) var LevelObject = preload("res://Objects/ObjectAssets/Level.tscn")
+
 
 func _ready():
 	$CanvasLayer/Version.text = "Version: "+Global.VERSION
@@ -13,12 +14,8 @@ func _ready():
 		var level_object = LevelObject.instance()
 		level_object.Level = level
 		LevelContainer.add_child(level_object)
-		
 	
 
-func _input(event):
-	if event.is_action_pressed("ui_cancel"):
-		SceneChanger.change_scene("")
 
 func dir_contents(path) -> Array:
 	var dir = Directory.new()

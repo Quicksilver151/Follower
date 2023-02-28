@@ -44,8 +44,10 @@ func detect_finish_line():
 	if (get_parent().get_node("Tiles").get_pos_tile(global_position) == "finish") and !$Sounds/Finish.playing and !SceneChanger.get_node("AnimationPlayer").is_playing():
 		$Sounds/Finish.play()
 		yield($Sounds/Finish,"finished")
-		
-		SceneChanger.change_scene("res://Scenes/Levels/Level"+str(int(get_parent().name.lstrip("Level"))+1)+".tscn")
+		var next_level = int(get_parent().name.lstrip("Level"))+1
+		Global.unlocked_levels = next_level if next_level > Global.unlocked_levels else Global.unlocked_levels
+		#TODO: relocate scene change code from follower to Global
+		SceneChanger.change_scene("res://Scenes/Levels/Level"+str(next_level)+".tscn")
 		
 	
 		

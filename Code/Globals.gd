@@ -12,6 +12,8 @@ var awesome = false
 onready var sound:Dictionary
 onready var player_position = get_viewport().size/2
 
+var unlocked_levels = 0
+var UNLOCK_OVERRIDE = false
 
 func _ready():
 	
@@ -22,12 +24,17 @@ func _ready():
 	VisualServer.set_default_clear_color(Color("bfbfbf"))
 	#Overlay.get_node("MarginContainer/Filter").modulate = Color.from_hsv(0.625,0.4,0.6)
 
-func _input(event):
+func _unhandled_input(event):
 	if event.is_action_pressed("f_fullscreen"):
 		OS.window_fullscreen = !OS.window_fullscreen
 	
 	if event.is_action_pressed("f_reload"):
 		get_tree().reload_current_scene()
+	
+	# back key
+	if event.is_action_pressed("ui_cancel"):
+		SceneChanger.change_scene("")
+	
 	
 	parse_cheatcode(event)
 
