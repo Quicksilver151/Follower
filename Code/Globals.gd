@@ -13,7 +13,7 @@ onready var sound:Dictionary
 onready var player_position = get_viewport().size/2
 
 var unlocked_levels = 0
-var UNLOCK_OVERRIDE = false
+var LEVEL_UNLOCK_OVERRIDE = true
 
 func _ready():
 	

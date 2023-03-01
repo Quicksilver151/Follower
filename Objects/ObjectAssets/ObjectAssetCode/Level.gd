@@ -6,7 +6,7 @@ onready var TextBox:RichTextLabel = $RichTextLabel
 
 func _ready():
 	TextBox.bbcode_text = "[center]?"
-	if Global.unlocked_levels >= Level:
+	if Global.unlocked_levels >= Level or Global.LEVEL_UNLOCK_OVERRIDE:
 		unlocked = true
 		TextBox.bbcode_text = "[center]" + str(Level)
 
