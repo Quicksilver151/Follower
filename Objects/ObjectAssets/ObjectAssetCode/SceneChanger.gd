@@ -1,7 +1,5 @@
 extends CanvasLayer
 
-
-
 func _ready():
 	$AnimationPlayer.play("fade_in")
 
@@ -29,7 +27,6 @@ func change_scene(scene_path:String):
 		$AnimationPlayer.play("fade_in")
 		yield($AnimationPlayer,"animation_finished")
 		get_tree().get_root().set_disable_input(false)
-		
 
 
 

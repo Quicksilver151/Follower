@@ -1,10 +1,11 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Code/Follower.gd" type="Script" id=1]
 [ext_resource path="res://Assets/AtlasTextures/follower_heart_atlas.tres" type="Texture" id=2]
 [ext_resource path="res://Assets/AtlasTextures/follower_atlas.tres" type="Texture" id=3]
 [ext_resource path="res://Assets/Sound/activate.wav" type="AudioStream" id=4]
 [ext_resource path="res://Assets/Sound/win.wav" type="AudioStream" id=5]
+[ext_resource path="res://Assets/Sound/land_heavy.wav" type="AudioStream" id=6]
 
 [sub_resource type="RectangleShape2D" id=11]
 extents = Vector2( 19, 31 )
@@ -107,6 +108,7 @@ shape = SubResource( 11 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 4, 4 )
 frames = SubResource( 1 )
+frame = 3
 playing = true
 
 [node name="Particles2D" type="Particles2D" parent="."]
@@ -126,5 +128,10 @@ stream = ExtResource( 4 )
 [node name="Finish" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource( 5 )
 volume_db = -10.0
+
+[node name="Land" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 6 )
+volume_db = -5.0
+pitch_scale = 1.1
 
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_PlayerDetector_body_entered"]

@@ -8,6 +8,7 @@ var speed = 300
 var follow = false
 onready var player = get_parent().get_node("Player")
 
+var on_air = true
 
 func _ready():
 	pass
@@ -18,6 +19,16 @@ func _physics_process(delta):
 	follower_movement(delta)
 	detect_finish_line()
 	wrap()
+	
+	if direction.y != 0:
+		on_air = true
+	
+	if SceneChanger.is_changing_scene():
+		on_air = false
+	
+	if is_on_floor() and on_air:
+		$Sounds/Land.play()
+		on_air = false
 	
 
 func follower_movement(delta):
@@ -35,7 +46,7 @@ func follower_movement(delta):
 		$AnimatedSprite.flip_h = false
 	
 	
-	direction = move_and_slide(direction*speed)/speed
+	direction = move_and_slide(direction*speed,Vector2.UP)/speed
 	
 
 

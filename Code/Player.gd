@@ -37,6 +37,8 @@ func top_down_movement(delta):
 			jump_buffer = 0.1
 	
 	if (is_on_wall() or is_on_floor()):
+#		if jump_allow_time <= 0:
+#			$sfx/land.play()
 		jump_allow_time = 0.15
 	
 	jump_buffer = max(jump_buffer-delta,0)
@@ -45,6 +47,8 @@ func top_down_movement(delta):
 	if jump_buffer and (jump_allow_time):
 		jump_buffer = 0
 		direction.y = -3
+		$sfx/jump.play()
+		
 	
 	
 	direction.y += 10*delta
