@@ -21,7 +21,7 @@ func change_scene(scene_path:String):
 		$AnimationPlayer.play_backwards("fade_in")
 		yield($AnimationPlayer,"animation_finished")
 		err = get_tree().change_scene(scene_path)
-		
+		Global.switch_phase = 0
 		
 		yield(get_tree().create_timer(0.5),"timeout")
 		$AnimationPlayer.play("fade_in")
